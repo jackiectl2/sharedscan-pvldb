@@ -11,12 +11,15 @@ scan, on unmodified vLLM and SGLang.
   - `sscan_model.py`, `sscan_model_v2.py`: capacity model and diagnostics.
   - `*_freeze.py`: build the frozen inputs and predictions before any run. `confirm_score.py`: scorer.
   - `confirm_rerun.py`, `confirm_rerun_summary.py`, `label_flips.py`: repeated eager runs and label analysis.
-  - `b8_freeze.py`, `b8_live.py`, `b8_predicates.py`, `b8_smoke.py`: scope-robustness block B8 (results added as they finish).
+  - `b8_freeze.py`, `b8b_freeze.py`, `b8c_freeze.py`, `b8_live.py`, `b8_predicates.py`, `b8_smoke.py`: scope block B8 and its seed extensions. `b8_summary.py`, `b8_rerun.py`, `b8_rerun_summary.py`: summary, repeated eager runs on extraction.
+  - `make_scope.py`, `make_scope_numbers.py`, `make_scope_fig.py`: scope table, prose numbers, and scope figure.
   - `make_figures.py`, `make_numbers.py`, `make_robust.py`, `make_overview.py`: figures and tables.
 - `slurm_examples/`: example job scripts with placeholders.
 - `protocol/`: the confirmatory preregistration and the design of each experiment block.
 - `results/`: measured results per block: `sscan` (the Qwen3-8B calibration session), `confirm` (B1), `sweep` (B2, B3), `b5`, `b6`, `b7`, `confirm_rerun`.
 - `derived/`: small data behind the figures and tables.
+
+`results/b8` contains partial files for runs still in progress when this copy was made: a file with fewer policies than its cell lists is not counted by `b8_summary.py`, and `derived/b8_unfinished.json` lists what was not complete. `derived/b8_job_resources.json` gives the CPUs and memory of each job.
 
 ## What was removed from the released results
 
@@ -33,6 +36,7 @@ recreates the texts from the public datasets named in that file.
 | Figures 2-4 and reported numbers | `results/confirm`, `results/sweep` | `code/make_figures.py`, `code/make_numbers.py` |
 | Figure 1 | none | `code/make_overview.py` |
 | Robustness table | `results/b5`, `results/b6`, `results/b7` | `code/make_robust.py` |
+| Scope table, scope figure, and scope numbers | `results/b8` via `derived/b8_summary.json` | `code/b8_summary.py`, `code/make_scope.py`, `code/make_scope_fig.py`, `code/make_scope_numbers.py` |
 | Answer agreement, repeated eager runs | `results/confirm`, `results/confirm_rerun`, `results/b5`-`b7` | `code/confirm_rerun_summary.py`, `code/label_flips.py` |
 
 Example: `python3 code/make_robust.py --root . --tex <OUTPUT_DIR>/robust_table.tex --json <OUTPUT_DIR>/robust_data.json`.

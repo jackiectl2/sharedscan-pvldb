@@ -1,0 +1,1 @@
+{"model": "Qwen/Qwen3-8B", "arxiv": {"n": 840, "yes": 24, "no": 816, "other": 0, "other_examples": [], "mean_yes_rate": 0.02857142857142857}, "pubmed": {"n": 840, "yes": 70, "no": 770, "other": 0, "other_examples": [], "mean_yes_rate": 0.08333333333333333}}
