@@ -157,7 +157,7 @@ Written 2026-10-23T13:29-04:00, **before any confirmatory GPU job was submitted*
 - **Frozen file.** `results/confirm/confirm_freeze.json` (on the cluster: `results/confirm/confirm_freeze.json`, made read-only; local copy also read-only).
   - `written_at`: 2026-10-23T13:28:32-04:00.
   - sha256: **`56eda5388de68d211a242f9baca09fa727c4eb337804067b817b3fef5c49f4b2`**.
-  - Produced by freeze job 64678141 (log `results/confirm/vldb1-cfreeze-64678141.out`).
+  - Produced by freeze job 64678141.
 - **Code sha256, recorded inside the freeze.** These match the cluster copies, checked before the freeze.
 
   | File | sha256 |

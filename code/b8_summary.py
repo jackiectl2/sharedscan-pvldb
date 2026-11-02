@@ -20,7 +20,7 @@ def rng2(values):
 def main():
     root = sys.argv[1]
     F = {}
-    for fn in ("b8_freeze.json", "b8b_freeze.json", "b8_scale_freeze.json", "b8c_freeze.json", "b8c_scale_freeze.json"):
+    for fn in ("b8_freeze.json", "b8b_freeze.json", "b8_scale_freeze.json", "b8c_freeze.json", "b8c_scale_freeze.json", "b8d_freeze.json"):
         p = f"{root}/results/b8/{fn}"
         if os.path.exists(p):
             d = json.load(open(p))

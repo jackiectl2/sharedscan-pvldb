@@ -10,7 +10,7 @@ CELLS = {"AxDist": "arxiv_k1600_l3_dist", "PmDist": "pubmed_k1600_l3_dist", "AxB
          "AxExtract": "arxiv_k1600_l3_extract", "AxSmall": "arxiv_n5000_k1600_l3", "AxLarge": "arxiv_n5000_k10000_l3",
          "PmSmall": "pubmed_n3000_k1600_l3", "PmLarge": "pubmed_n3000_k10000_l3"}
 F2, F1 = "P6_lazyscan", "P6_lazyscan_F1"
-WORDS = {1: "one", 2: "two", 3: "three", 4: "four", 5: "five", 6: "six"}
+WORDS = {1: "one", 2: "two", 3: "three", 4: "four", 5: "five", 6: "six", 7: "seven", 8: "eight"}
 
 
 def rng(vals, fmt="{:.2f}"):
@@ -45,12 +45,15 @@ def main():
     for k, p in (("Sys", F2), ("One", F1), ("Ad", "P2_adaptive"), ("Win", "P2_window30")):
         M["Ext" + k] = rng([v * 100 for v in x[p]["stage2"]], "{:.1f}")
         M["Ext" + k + "Id"] = rng(x[p]["identical"], "{:d}")
-    M["ExtPairs"] = rng(x[F2]["stage2_pairs"], "{:,d}")
+    M["ExtPairs"] = rng([v for p in (F2, F1, "P2_adaptive", "P2_window30") for v in x[p]["stage2_pairs"]], "{:,d}")
     sc = [S[CELLS[k]]["policies"] for k in ("AxSmall", "AxLarge", "PmSmall", "PmLarge") if CELLS[k] in S]
     for k, p in (("Sys", F2), ("Ad", "P2_adaptive"), ("Win", "P2_window30")):
         M["Scale" + k + "Id"] = rng([v for q in sc for v in q[p]["identical"]], "{:d}")
     cells1k = ["arxiv_k1600_l3_dist", "pubmed_k1600_l3_dist", "arxiv_k1600_l3_burst", "pubmed_k1600_l3_burst", "arxiv_k1600_l3_extract"]
     pct = [(S[c]["policies"][F1]["makespan"] / S[c]["policies"][F2]["makespan"] - 1) * 100 for c in cells1k if c in S]
+    for c in ("arxiv_k1600_l3_f1", "pubmed_k1600_l3_f1"):
+        q = S[c]["policies"]
+        pct.append((q["P6_lazyscan_b16_F1"]["makespan"] / q["P6_lazyscan_b16"]["makespan"] - 1) * 100)
     M["OneLo"], M["OneHi"] = f"{min(pct):.0f}", f"{max(pct):.0f}"
 
     s = []
@@ -59,13 +62,18 @@ def main():
         for k, blocks in (("PmSmall", "1,600"), ("PmLarge", "10,000")):
             if CELLS[k] in S:
                 parts.append((k, blocks))
-        s.append("On PubMed, with " + " and ".join(f"{M[k + 'Tr']} traces at {b}" for k, b in parts) + " blocks, \\sys lowers makespan relative to the window by "
+        s.append("On PubMed, with " + " and ".join(f"{M[k + 'Tr']} trace{'' if M[k + 'Tr'] == 'one' else 's'} at {b}" for k, b in parts) + " blocks, \\sys lowers makespan relative to the window by "
                  + " and ".join(f"{M[k + 'Gain']}$\\times$ (predicted {M[k + 'Pred']}$\\times$)" for k, _ in parts)
-                 + "; relative to adaptive batching, makespan is " + " and ".join(f"{M[k + 'Ad']}$\\times$" for k, _ in parts)
+                 + ". Relative to adaptive batching, makespan is " + " and ".join(f"{M[k + 'Ad']}$\\times$" for k, _ in parts)
                  + " lower and p95 latency " + " and ".join(f"{M[k + 'PAd']}$\\times$" for k, _ in parts) + " lower.")
     if CELLS["PmSmall"] not in S:
         s.append("The PubMed runs at 1,600 blocks did not finish in time.")
     M["PmScaleSentence"] = " ".join(s)
+
+    M["AxSeedHi"] = str(max(int(x) for c in ("AxDist", "AxBurst", "AxExtract") for x in S[CELLS[c]]["seeds"]))
+    # Budgets as a share of the reusable prefix footprint (Eq. ratio, shared prefix tokens / 16): arXiv 76,513 KV blocks.
+    M["KvLo"] = "1" if CELLS["PmSmall"] in S else "2"
+    M["KvText"] = "2--13\\% of the arXiv prefixes and " + ("1--8\\%" if CELLS["PmSmall"] in S else "8\\%") + " of the PubMed prefixes"
 
     def check(ok, msg):
         if not ok:

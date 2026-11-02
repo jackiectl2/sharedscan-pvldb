@@ -32,7 +32,7 @@ POLICY_STYLE = {
     "P2_adaptive": ("Adaptive batch", "#009E73", "D"),
     "SGL_lpm": ("SGLang LPM", "#E69F00", "P"),
     "SGL_P6": ("SharedScan on SGLang", "#CC79A7", "X"),
-    "P6_lazyscan_b16": ("SharedScan b=16", "#F0A3C8", "<"),
+    "P6_lazyscan_b16": ("SharedScan b=16", "#E78AC3", "<"),
     "P6_lazyscan": ("SharedScan b=32", "#D55E00", "*"),
     "P6_lazyscan_b64": ("SharedScan b=64", "#8C2D04", ">"),
 }
@@ -72,7 +72,7 @@ def footprint_ratio(corp, b, C):
 
 def fig_main(root, F, S, out, data, skipped):
     """Per-seed makespan and p95 for every policy at 1,600 KV blocks and load 3.0, one row per corpus."""
-    fig, axes = plt.subplots(2, 2, figsize=(7.0, 3.6), gridspec_kw=dict(width_ratios=[1, 1]))
+    fig, axes = plt.subplots(2, 2, figsize=(7.0, 4.1), gridspec_kw=dict(width_ratios=[1, 1]))
     for row, corp in enumerate(("pubmed", "arxiv")):
         series = []  # (key, [(seed, makespan, p95, p50)])
         b1 = load_cell(root, "confirm", f"{corp}_k1600_l3", F["cells"][f"{corp}_k1600_l3"]["policies"], [10, 11, 12])
@@ -96,20 +96,25 @@ def fig_main(root, F, S, out, data, skipped):
                 skipped.append(f"{corp}_batch_k1600_l3")
         data.setdefault("main", {})[corp] = {k: v for k, v in series}
         order = sorted(series, key=lambda kv: np.mean([x[1] for x in kv[1]]))  # fastest policy on top
-        for col, (idx, label, logx) in enumerate(((1, "Makespan (s)", False), (2, "Query latency, p50 (open) to p95 (filled), s", True))):
+        xmax = max(pt[1] for _, pts in order for pt in pts)
+        for col, (idx, label, logx) in enumerate(((1, "Makespan (s)", False), (2, "Query latency, upper median (open) to p95 (filled), s", True))):
             ax = axes[row, col]
             for y, (key, pts) in enumerate(order):
                 name, color, marker = POLICY_STYLE[key]
+                if "P6" in key:  # identity band: the rows of the proposed operator, in every panel
+                    ax.axhspan(y - 0.5, y + 0.5, color="#F0F0F0", lw=0, zorder=0)
                 for j, pt in enumerate(pts):
-                    dy = (j - 1) * 0.18
+                    dy = (j - 1) * 0.2
                     if col == 0:
-                        ax.plot(pt[1], y + dy, marker=marker, color=color, ms=4, ls="none")
+                        ax.plot(pt[1], y + dy, marker=marker, color=color, ms=3.5, ls="none", zorder=2)
                     else:
-                        ax.plot([pt[3], pt[2]], [y + dy, y + dy], color=color, lw=0.8)
-                        ax.plot(pt[3], y + dy, marker=marker, mfc="white", mec=color, ms=3.5, ls="none")
-                        ax.plot(pt[2], y + dy, marker=marker, color=color, ms=4, ls="none")
+                        ax.plot([pt[3], pt[2]], [y + dy, y + dy], color=color, lw=0.8, zorder=2)
+                        ax.plot(pt[3], y + dy, marker=marker, mfc="white", mec=color, ms=3, ls="none", zorder=3)
+                        ax.plot(pt[2], y + dy, marker=marker, color=color, ms=3.5, ls="none", zorder=3)
                 if col == 0:
-                    ax.plot([np.mean([p[1] for p in pts])] * 2, [y - 0.35, y + 0.35], color=color, lw=1.2)
+                    mean = np.mean([p[1] for p in pts])
+                    ax.plot([mean] * 2, [y - 0.42, y + 0.42], color="#111111", lw=0.9, zorder=4)
+                    ax.text(max(p[1] for p in pts) + 0.025 * xmax, y, f"{mean:,.0f}", va="center", ha="left", fontsize=6)
             ax.set_ylim(len(order) - 0.5, -0.5)
             ax.set_yticks(range(len(order)))
             ax.set_yticklabels([POLICY_STYLE[k][0] for k, _ in order] if col == 0 else [])
@@ -117,10 +122,13 @@ def fig_main(root, F, S, out, data, skipped):
                 ax.set_xscale("log")
                 ax.get_xaxis().set_major_formatter(matplotlib.ticker.FormatStrFormatter("%g"))
                 ax.get_xaxis().set_minor_formatter(matplotlib.ticker.NullFormatter())
+                ax.set_xticks([30, 100, 300, 1000, 3000] if corp == "pubmed" else [30, 100, 300, 1000])
+                ax.set_xlim(left=min(pt[3] for _, pts in order for pt in pts) * 0.85)
+            else:
+                ax.set_xlim(0, xmax * 1.13)  # zero baseline, so makespan ratios read off the axis
             ax.set_xlabel(label)
-            ax.grid(axis="x", lw=0.3, alpha=0.5)
-            ax.set_title(f"{CORPUS_LABEL[corp]}: {'makespan' if col == 0 else 'latency'} (3 seeds; bar = mean)"
-                         if col == 0 else f"{CORPUS_LABEL[corp]}: per-query latency (3 seeds)")
+            ax.grid(axis="x", lw=0.3, alpha=0.5, zorder=1)
+            ax.set_title(f"{CORPUS_LABEL[corp]}: makespan (value = mean of 3 traces)" if col == 0 else f"{CORPUS_LABEL[corp]}: per-query latency (3 traces)")
     fig.tight_layout()
     fig.savefig(os.path.join(out, "fig_main.pdf"))
     plt.close(fig)
@@ -172,11 +180,11 @@ def fig_regime(cells, out, data):
     data["regime"] = hi
     for ax, key, ylab in ((axes[0], "gain", "Makespan gain vs best baseline"), (axes[1], "cached", "SharedScan cached-token fraction")):
         ax.axvline(1.0, color="k", lw=0.6, ls="--")
-        ax.text(1.02, 0.97, "footprint = KV capacity", transform=ax.get_xaxis_transform(), fontsize=5.5, va="top")
+        ax.text(0.97, 0.03, "footprint = capacity", transform=ax.get_xaxis_transform(), fontsize=6, va="bottom", ha="right")
         if key == "gain":
             ax.axhspan(0.95, 1.05, color="0.9", lw=0)
         for c in hi:
-            color = "#D55E00" if c["corpus"] == "pubmed" else "#0072B2"
+            color = "#E69F00" if c["corpus"] == "pubmed" else "#0072B2"  # the pair also differs in lightness, for grayscale
             mk = {16: "<", 32: "*", 48: "h", 64: ">"}[c["b"]]
             obs = c["gains"] if key == "gain" else c["cached"]
             ax.plot([c["ratio"]] * len(obs), obs, ls="none", marker=mk, color=color, ms=3.5, alpha=0.75)
@@ -186,17 +194,19 @@ def fig_regime(cells, out, data):
         ax.set_xticks([0.25, 0.5, 1, 2])
         ax.get_xaxis().set_major_formatter(matplotlib.ticker.FormatStrFormatter("%g"))
         ax.get_xaxis().set_minor_formatter(matplotlib.ticker.NullFormatter())
-        ax.set_xlabel("Max single-block prefix footprint / (KV blocks - 1)")
+        ax.set_xlabel(r"Footprint ratio $\rho$: largest block prefix footprint / (KV blocks $-$ 1)")
         ax.set_ylabel(ylab)
+        if key == "cached":
+            ax.set_ylim(0, 0.75)
         ax.grid(lw=0.3, alpha=0.5)
     from matplotlib.lines import Line2D
-    handles = [Line2D([], [], ls="none", marker="o", color="#D55E00", ms=4, label="PubMed (observed, per seed)"),
-               Line2D([], [], ls="none", marker="o", color="#0072B2", ms=4, label="arXiv (observed, per seed)"),
+    handles = [Line2D([], [], ls="none", marker="o", color="#E69F00", ms=4, label="PubMed (one per trace)"),
+               Line2D([], [], ls="none", marker="o", color="#0072B2", ms=4, label="arXiv (one per trace)"),
                Line2D([], [], ls="none", marker="o", mfc="none", mec="k", ms=6, label="Frozen prediction (model P)")]
     present = {c["b"] for c in hi}
     handles += [Line2D([], [], ls="none", marker=m, color="0.3", ms=4, label=f"b={b}")
                 for b, m in ((16, "<"), (32, "*"), (48, "h"), (64, ">")) if b in present]
-    fig.legend(handles=handles, loc="lower center", frameon=False, ncol=7, bbox_to_anchor=(0.5, 0.0))
+    fig.legend(handles=handles, loc="lower center", frameon=False, ncol=7, bbox_to_anchor=(0.5, 0.0), columnspacing=1.2, handletextpad=0.4)
     fig.tight_layout(rect=(0, 0.08, 1, 1))
     fig.savefig(os.path.join(out, "fig_regime.pdf"))
     plt.close(fig)
@@ -207,42 +217,46 @@ def fig_predict(cells, out, data):
     (fitted kappa), and predicted against observed gains."""
     def cls(g):
         return "win" if g > 1.05 else ("loss" if g < 0.95 else "tie")
-    fig, axes = plt.subplots(1, 2, figsize=(7.0, 2.6), gridspec_kw=dict(width_ratios=[1.1, 1]))
+    fig, axes = plt.subplots(1, 2, figsize=(7.0, 2.75), gridspec_kw=dict(width_ratios=[1.45, 1]), sharey=True)
     ax = axes[0]
     rows = sorted(cells, key=lambda c: (c["corpus"], c["load"], c["C"], c["b"]))
-    labels = [f"{c['corpus'][:2]} C={c['C']} L={c['load']:g} b={c['b']}" for c in rows]
-    colmap = {"win": "#009E73", "tie": "#E69F00", "loss": "#CC79A7"}
+    labels = [f"{dict(arxiv='arXiv', pubmed='PubMed')[c['corpus']]}, C={c['C']:,}, L={c['load']:g}, b={c['b']}" + ("$^{\\dagger}$" if c["sub"] == "sweep" else "") for c in rows]
+    colmap = {"win": "#BFE3D7", "tie": "#F7E3B0", "loss": "#EBCBDD"}
     for i, c in enumerate(rows):
         o = cls(c["gain"])
         for j, m in enumerate(("observed", "P", "M1")):
-            k = o if m == "observed" else cls(c["pred"][m]["gain"])
-            ok = (k == o)
-            ax.add_patch(plt.Rectangle((j, i), 0.95, 0.9, color=colmap[k], alpha=1.0 if (m == "observed" or ok) else 0.35))
-            ax.text(j + 0.47, i + 0.45, k if m == "observed" else (k + ("" if ok else " x")), ha="center", va="center", fontsize=5.5)
+            g = c["gain"] if m == "observed" else c["pred"][m]["gain"]
+            k = cls(g)
+            ok = k == o
+            ax.add_patch(plt.Rectangle((j + 0.02, i + 0.05), 0.96, 0.9, facecolor=colmap[k], edgecolor="#222222" if not ok else "none", lw=1.1 if not ok else 0))
+            ax.text(j + 0.5, i + 0.5, f"{k} {g:.2f}", ha="center", va="center", fontsize=6, fontweight="bold" if not ok else "normal")
     ax.set_xlim(0, 3)
     ax.set_ylim(len(rows), 0)
-    ax.set_xticks([0.47, 1.47, 2.47])
-    ax.set_xticklabels(["Observed", "P (primary)", "M1 (fitted kappa)"])
-    ax.set_yticks([i + 0.45 for i in range(len(rows))])
-    ax.set_yticklabels(labels, fontsize=5.5)
-    ax.set_title("Makespan winner class (x = misclassified)")
+    ax.set_xticks([0.5, 1.5, 2.5])
+    ax.set_xticklabels(["Measured", "P (primary)", "M1 (70% capacity)"])
+    ax.set_yticks([i + 0.5 for i in range(len(rows))])
+    ax.set_yticklabels(labels, fontsize=6)
+    ax.tick_params(axis="both", length=0)
+    ax.set_title("Outcome class and makespan gain (outlined = misclassified)")
     ax.spines[:].set_visible(False)
     ax = axes[1]
-    lim = [0.4, 2.2]
-    ax.plot(lim, lim, color="k", lw=0.6)
-    ax.fill_between(lim, [x * 0.8 for x in lim], [x * 1.2 for x in lim], color="0.9", lw=0)
-    for c in cells:
-        for m, mk, col in (("P", "o", "#D55E00"), ("M1", "x", "#0072B2")):
-            ax.plot(c["gain"], c["pred"][m]["gain"], marker=mk, color=col, ls="none", ms=4)
-    ax.set_xlim(lim)
-    ax.set_ylim(lim)
-    ax.set_xlabel("Observed gain (ratio of mean makespans)")
-    ax.set_ylabel("Frozen predicted gain")
-    ax.set_title("Predicted vs observed (band = +/-20%)")
+    ax.axvspan(0.95, 1.05, color="0.9", lw=0, zorder=0)
+    ax.axvline(1, color="k", lw=0.6, zorder=1)
+    for i, c in enumerate(rows):
+        for m, mk, col, dy in (("P", "o", "#D55E00", -0.13), ("M1", "x", "#0072B2", 0.13)):
+            ax.plot(c["pred"][m]["gain"] / c["gain"], i + 0.5 + dy, marker=mk, color=col, ls="none", ms=3.5, mew=0.9, zorder=3)
+    ax.set_xscale("log")
+    ax.set_xticks([0.4, 0.5, 0.6, 0.8, 1.0, 1.2])
+    ax.get_xaxis().set_major_formatter(matplotlib.ticker.FormatStrFormatter("%g"))
+    ax.get_xaxis().set_minor_formatter(matplotlib.ticker.NullFormatter())
+    ax.set_xlim(0.36, 1.25)
+    ax.set_xlabel("Frozen predicted gain / measured gain")
+    ax.set_title("Prediction error per configuration")
+    ax.tick_params(axis="y", length=0)
     from matplotlib.lines import Line2D
-    ax.legend(handles=[Line2D([], [], marker="o", ls="none", color="#D55E00", label="P (primary)"),
-                       Line2D([], [], marker="x", ls="none", color="#0072B2", label="M1 (fitted kappa)")], frameon=False, loc="upper left")
-    ax.grid(lw=0.3, alpha=0.5)
+    ax.legend(handles=[Line2D([], [], marker="o", ls="none", color="#D55E00", ms=3.5, label="P (primary)"),
+                       Line2D([], [], marker="x", ls="none", color="#0072B2", ms=3.5, label="M1 (70% capacity)")], frameon=True, framealpha=1, edgecolor="none", loc="upper left")
+    ax.grid(axis="x", lw=0.3, alpha=0.5, zorder=1)
     data["predict"] = [dict(cell=c["cell"], variant=c["variant"], obs=c["gain"], P=c["pred"]["P"]["gain"], M1=c["pred"]["M1"]["gain"]) for c in rows]
     fig.tight_layout()
     fig.savefig(os.path.join(out, "fig_predict.pdf"))
@@ -250,32 +264,40 @@ def fig_predict(cells, out, data):
 
 
 def fig_quality(root, F, out, data, skipped):
-    """Stage-1 label agreement with the first eager run for every policy, against the eager rerun (noise floor)."""
-    rows = []
+    """Per trace, against the first eager run of the same job: first-stage label disagreement and queries whose result set is
+    identical. The eager rerun is the noise floor of the engine; every confirmatory configuration contributes its traces."""
+    ROWS = [("P1_eager_rerun", "vLLM eager, second run", "vllm"), ("P2_window30", "Window 30 s", "vllm"), ("P6_lazyscan_b16", "SharedScan b=16", "vllm"),
+            ("P6_lazyscan", "SharedScan b=32", "vllm"), ("P6_lazyscan_b64", "SharedScan b=64", "vllm"), ("P6_lazyscan", "SharedScan on SGLang", "sglang")]
+    pts = []
     for name, c in F["cells"].items():
         runs = load_cell(root, "confirm", name, c["policies"], c["seeds"], c.get("m"))
         if runs is None:
+            skipped.append(name)
             continue
-        for pol in c["policies"][1:]:
-            a = [runs[s][pol]["stage1_agreement"] for s in runs]
-            w = [runs[s][pol]["stage1_pairs"] for s in runs]
-            rows.append(dict(cell=name, policy=pol if c["backend"] == "vllm" else ("SGL_P6" if pol == "P6_lazyscan" else pol),
-                             mean=float(np.average(a, weights=w)), lo=float(min(a)), hi=float(max(a)),
-                             pairs=int(sum(runs[s][pol]["stage1_pairs"] for s in runs))))
-    data["quality"] = rows
-    if not rows:
-        return
-    fig, ax = plt.subplots(figsize=(3.4, 0.16 * len(rows) + 0.8))
-    for i, r in enumerate(rows):
-        name, color, marker = POLICY_STYLE.get(r["policy"], (r["policy"], "k", "o"))
-        ax.plot([1 - r["hi"], 1 - r["lo"]], [i, i], color=color, lw=1)
-        ax.plot(1 - r["mean"], i, marker=marker, color=color, ms=3.5)
-    ax.set_yticks(range(len(rows)))
-    ax.set_yticklabels([f"{r['cell']}: {POLICY_STYLE.get(r['policy'], (r['policy'],))[0]}" for r in rows], fontsize=5)
-    ax.set_xlabel("Stage-1 disagreement with first eager run (1 - agreement)")
-    ax.invert_yaxis()
-    ax.grid(axis="x", lw=0.3, alpha=0.5)
-    fig.tight_layout()
+        for s, rs in runs.items():
+            for pol, r in rs.items():
+                if pol != "P1_eager":
+                    pts.append(dict(cell=name, seed=s, corpus=c["corpus"], backend=c["backend"], policy=pol, disagree=100 * (1 - r["stage1_agreement"]),
+                                    identical=round(r["queries_with_identical_result"] * c["m"]), m=c["m"]))
+    data["quality"] = pts
+    fig, axes = plt.subplots(1, 2, figsize=(3.4, 1.95), sharey=True)
+    style = {"pubmed": ("#D55E00", "o", -0.17), "arxiv": ("#0072B2", "s", 0.17)}
+    for ax, key, xlabel in ((axes[0], "disagree", "First-stage labels\nthat differ (%)"), (axes[1], "identical", "Queries with identical\nresults (of 60)")):
+        for y, (pol, _, be) in enumerate(ROWS):
+            for corp, (col, mk, dy) in style.items():
+                xs = [p[key] for p in pts if p["policy"] == pol and p["backend"] == be and p["corpus"] == corp]
+                ax.scatter(xs, [y + dy] * len(xs), s=9, color=col, marker=mk, alpha=0.65, linewidths=0, zorder=3)
+        ax.set_xlabel(xlabel)
+        ax.grid(axis="x", lw=0.3, alpha=0.5, zorder=1)
+    axes[0].set_yticks(range(len(ROWS)), [r[1] for r in ROWS])
+    axes[0].set_ylim(len(ROWS) - 0.5, -0.5)
+    axes[0].set_xlim(left=-0.01)
+    axes[1].set_xlim(0, 62)
+    axes[1].set_xticks([0, 20, 40, 60])
+    from matplotlib.lines import Line2D
+    fig.legend(handles=[Line2D([], [], marker=mk, ls="none", color=col, ms=3.5, label=lab) for (col, mk, _), lab in ((style["pubmed"], "PubMed trace"), (style["arxiv"], "arXiv trace"))],
+               loc="upper center", ncol=2, frameon=False, bbox_to_anchor=(0.68, 1.03))
+    fig.subplots_adjust(left=0.40, right=0.975, bottom=0.235, top=0.91, wspace=0.09)
     fig.savefig(os.path.join(out, "fig_quality.pdf"))
     plt.close(fig)
 
