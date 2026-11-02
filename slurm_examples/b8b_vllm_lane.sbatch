@@ -13,7 +13,7 @@ set -euo pipefail
 R=${PROJECT_ROOT:?set to the root of this repository}
 FZ=$R/results/b8/b8b_freeze.json
 O=$R/results/b8/${1}_s${2}.json
-# Preflight before feeding the lane: a deployment error must not propagate down the lane.
+# Preflight.
 [ "$(sha256sum "$FZ" | cut -d' ' -f1)" = "$3" ] || { echo "b8 freeze sha mismatch" >&2; exit 1; }
 [ ! -e "$O" ] || { echo "$O exists; refusing to overwrite" >&2; exit 1; }
 case "$1" in *_dist) grep -q '"other": 0,' $R/results/b8/smoke.json 2>/dev/null || { echo "smoke check missing or failed" >&2; exit 1; } ;; esac

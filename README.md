@@ -14,7 +14,7 @@ scan, on unmodified vLLM and SGLang.
   - `b8_freeze.py`, `b8b_freeze.py`, `b8c_freeze.py`, `b8d_freeze.py`, `b8_live.py`, `b8_predicates.py`, `b8_smoke.py`: scope block B8 and its seed extensions. `b8_summary.py`, `b8_rerun.py`, `b8_rerun_summary.py`: summary, repeated eager runs on extraction.
   - `make_scope.py`, `make_scope_numbers.py`, `make_scope_fig.py`: scope table, prose numbers, and scope figure.
   - `make_figures.py`, `make_numbers.py`, `make_robust.py`, `table_style.py`: data figures, generated numbers, and table cell formatting. `derived/fig_pipeline.svg` is the source of Figure 1.
-- `slurm_examples/`: example job scripts with placeholders. Set `PROJECT_ROOT` and `SIF` and replace the `<...>` values before use; the GPU type and module line are those of our cluster.
+- `slurm_examples/`: example job scripts with placeholders. Set `PROJECT_ROOT` and `SIF` and replace the `<...>` values before use; the GPU type and module line are those of our cluster. Set `PROJECT_ROOT` and `SIF` and replace the `<...>` values before use; the GPU type and module line are those of our cluster.
 - `protocol/`: the confirmatory preregistration and the design of each experiment block.
 - `results/`: measured results per block: `sscan` (the Qwen3-8B calibration session), `confirm` (B1), `sweep` (B2, B3), `b5`, `b6`, `b7`, `b8`, `confirm_rerun`.
 - `derived/`: small data behind the figures and tables.
@@ -40,7 +40,7 @@ recreates the texts from the public datasets named in that file.
 | Answer agreement, repeated eager runs | `results/confirm`, `results/confirm_rerun`, `results/b5`-`b7` | `code/confirm_rerun_summary.py`, `code/label_flips.py` |
 
 Example: `python3 code/make_robust.py --root . --tex <OUTPUT_DIR>/robust_table.tex --json <OUTPUT_DIR>/robust_data.json`.
-Scripts that read per-prompt labels need the files as released here; those that read freeze files use only the kept fields.
+`code/b8_rerun_summary.py` needs per-prompt labels that are not released for the extraction reruns, so `derived/b8_rerun_summary.json` is the output of the original run. Other scripts that read per-prompt labels need the files as released here; those that read freeze files use only the kept fields.
 
 ## Rerunning an experiment
 
@@ -49,10 +49,9 @@ Environment: Python 3 with the packages in `requirements.txt`, one NVIDIA L40S G
 Each `code/*_freeze.py` prints its arguments with `--help` and writes a new freeze file. A rebuilt freeze file has a new sha256; pass that value. Calibration parameters are in `results/sscan/model_params_released.json`.
 
 ```bash
-export PROJECT_ROOT="$PWD" SIF=<PATH_TO_IMAGE>
 python3 code/confirm_live.py --freeze <FREEZE_JSON> --freeze-sha <SHA256> --cell <CELL> --seed <SEED> --save-labels --out <OUTPUT_JSON>
 ```
 
-`slurm_examples/` shows how the same runs were submitted on a Slurm cluster.
+`slurm_examples/` shows how the same runs were submitted on a Slurm cluster. Set `PROJECT_ROOT` to the repository root and `SIF` to the image.
 
 Tables and generated numbers: `python3 code/make_scope.py derived/b8_summary.json <OUTPUT_TEX>`, `python3 code/make_scope_numbers.py derived/b8_summary.json <OUTPUT_TEX>`, and `python3 code/make_scope_fig.py derived/b8_summary.json <OUTPUT_PDF>`.

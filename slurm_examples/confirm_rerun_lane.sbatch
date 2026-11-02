@@ -10,7 +10,6 @@
 #   confirm_rerun_lane.sbatch <cell> <seed> <freeze sha256>. Walltime per submission = 1.3 x the estimated runtime
 # (twice the B1 P1_eager makespan of that cell and seed + startup measured in B1).
 set -euo pipefail
-# Lane wrapper: identical to confirm_vllm_lane.sbatch except for the runner and the output directory.
 R=${PROJECT_ROOT:?set to the root of this repository}
 O=$R/results/confirm_rerun/${1}_s${2}.json
 mkdir -p "$(dirname "$O")" && test -w "$(dirname "$O")"

@@ -10,10 +10,9 @@
 #   b7_vllm_lane.sbatch <cell> <seed> <freeze sha256>. Walltime per submission = 1.3 x the estimated runtime
 # (model-predicted policy makespans for that cell and seed + startup and warm-up).
 set -euo pipefail
-# Lane wrapper: identical to sweep_vllm.sbatch except that it first feeds the next item of its lane.
 R=${PROJECT_ROOT:?set to the root of this repository}
-# Preflight before feeding the lane: a deployment error must not propagate down the lane.
-[ -f $R/code/sweep_live_b5.py ] || { echo "missing jobs/sweep_live_b5.py" >&2; exit 1; }
+# Preflight.
+[ -f $R/code/sweep_live_b5.py ] || { echo "missing code/sweep_live_b5.py" >&2; exit 1; }
 [ "$(sha256sum $R/results/b7/b7_freeze.json | cut -d' ' -f1)" = "$3" ] || { echo "b7 freeze sha mismatch" >&2; exit 1; }
 # PubMed cells run only after the PubMed first-token smoke check has shown no reply other than Yes/No.
 case "$1" in pubmed*) grep -q '"other": 0,' $R/results/b7/smoke_q4b_first_tokens_pubmed.json 2>/dev/null \

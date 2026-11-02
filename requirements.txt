@@ -1,6 +1,9 @@
 # Analysis and figures
 numpy
 matplotlib
-# Runs: one of these per engine, in the Singularity image
+pandas
+# Runs: one engine per image, plus model and dataset access
 vllm==0.30.0
 sglang==0.5.20
+huggingface_hub
+transformers
