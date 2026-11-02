@@ -1,205 +1,149 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1536" height="1024" viewBox="0 0 1536 1024">
-<rect x="0" y="0" width="1536" height="1024" fill="#fff"/>
-<text x="28" y="98" text-anchor="start" font-family="ArialBold" font-size="46" fill="#14191e">Active queries</text>
-<rect x="28" y="120" width="320" height="55" rx="5" fill="#fff" stroke="#81909b" stroke-width="2"/>
-<rect x="28" y="120" width="72" height="55" rx="5" fill="#f7fafc" stroke="#0b69b2" stroke-width="2"/>
-<text x="64" y="159" text-anchor="middle" font-family="STIX" font-size="36" fill="#14191e">q₁</text>
-<path d="M118 148 L333 148" fill="none" stroke="#2f363b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M157 148 L299 148" fill="none" stroke="#0b69b2" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
-<circle cx="157" cy="148" r="9" fill="#0b69b2" stroke="#202a32" stroke-width="2"/>
-<circle cx="299" cy="148" r="9" fill="#0b69b2" stroke="#202a32" stroke-width="2"/>
-<rect x="28" y="198" width="320" height="55" rx="5" fill="#fff" stroke="#81909b" stroke-width="2"/>
-<rect x="28" y="198" width="72" height="55" rx="5" fill="#f7fafc" stroke="#198747" stroke-width="2"/>
-<text x="64" y="237" text-anchor="middle" font-family="STIX" font-size="36" fill="#14191e">q₂</text>
-<path d="M118 226 L333 226" fill="none" stroke="#2f363b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M157 226 L299 226" fill="none" stroke="#198747" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
-<circle cx="157" cy="226" r="9" fill="#198747" stroke="#202a32" stroke-width="2"/>
-<circle cx="299" cy="226" r="9" fill="#198747" stroke="#202a32" stroke-width="2"/>
-<text x="28" y="310" text-anchor="start" font-family="ArialBold" font-size="46" fill="#14191e">Late query</text>
-<rect x="28" y="335" width="320" height="55" rx="5" fill="#fff" stroke="#81909b" stroke-width="2"/>
-<rect x="28" y="335" width="72" height="55" rx="5" fill="#f7fafc" stroke="#eb731b" stroke-width="2"/>
-<text x="64" y="374" text-anchor="middle" font-family="STIX" font-size="36" fill="#14191e">q₃</text>
-<path d="M118 363 L333 363" fill="none" stroke="#2f363b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M166 363 L303 363" fill="none" stroke="#eb731b" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
-<circle cx="166" cy="363" r="9" fill="#eb731b" stroke="#202a32" stroke-width="2"/>
-<circle cx="303" cy="363" r="9" fill="#eb731b" stroke="#202a32" stroke-width="2"/>
-<path d="M348 147 C410 145 360 55 520 67 L980 67 C1025 67 1050 76 1062 113" fill="none" stroke="#0b69b2" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M348 225 C425 223 390 91 520 89 L980 89 C1025 89 1047 97 1062 115" fill="none" stroke="#198747" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M348 362 C435 360 412 112 530 111 L980 111 C1025 111 1047 112 1060 117" fill="none" stroke="#eb731b" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-<polygon points="1053.2,108.5 1053.2,119.5 1062,114" fill="#0b69b2"/>
-<polygon points="1053.2,110.5 1053.2,121.5 1062,116" fill="#198747"/>
-<polygon points="1053.2,113.5 1053.2,124.5 1062,119" fill="#eb731b"/>
-<circle cx="1068" cy="128" r="13" fill="#fff" stroke="#243039" stroke-width="3"/>
-<path d="M1068 142 L1068 188" fill="none" stroke="#1b252d" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-<polygon points="1058,178 1078,178 1068,194" fill="#202a32"/>
-<text x="702" y="45" text-anchor="middle" font-family="ArialBold" font-size="39" fill="#14191e">Circular scan</text>
-<path d="M1088 135 C1170 140 1250 145 1326 175" fill="none" stroke="#202a32" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-<polygon points="1312,166 1312,186 1328,176" fill="#202a32"/>
-<path d="M1340 180 C1430 188 1480 240 1478 275" fill="none" stroke="#202a32" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="14 10"/>
-<polygon points="1468,272 1488,272 1478,288" fill="#202a32"/>
-<path d="M1478 290 C1445 345 1360 370 1270 378 L680 378 C640 378 580 366 530 355" fill="none" stroke="#202a32" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-<polygon points="546,345 546,365 530,355" fill="#202a32"/>
-<path d="M560 350 C520 330 507 304 525 267 C532 250 542 246 568 244" fill="none" stroke="#202a32" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-<polygon points="552,234 552,254 568,244" fill="#202a32"/>
-<rect x="570" y="194" width="170" height="92" rx="8" fill="#f7f7f7" stroke="#343d42" stroke-width="3"/>
-<path d="M595 226 L616 226 L626 236 L626 267 L595 267 Z M616 226 L616 236 L626 236" fill="#fff" stroke="#5d6870" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M603 247 L618 247" fill="none" stroke="#5d6870" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M603 256 L618 256" fill="none" stroke="#5d6870" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M603 265 L618 265" fill="none" stroke="#5d6870" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M643 226 L664 226 L674 236 L674 267 L643 267 Z M664 226 L664 236 L674 236" fill="#fff" stroke="#5d6870" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M651 247 L666 247" fill="none" stroke="#5d6870" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M651 256 L666 256" fill="none" stroke="#5d6870" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M651 265 L666 265" fill="none" stroke="#5d6870" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M691 226 L712 226 L722 236 L722 267 L691 267 Z M712 226 L712 236 L722 236" fill="#fff" stroke="#5d6870" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M699 247 L714 247" fill="none" stroke="#5d6870" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M699 256 L714 256" fill="none" stroke="#5d6870" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M699 265 L714 265" fill="none" stroke="#5d6870" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<text x="582" y="332" text-anchor="start" font-family="STIX" font-size="36" fill="#14191e">B₁</text>
-<rect x="775" y="194" width="170" height="92" rx="8" fill="#f7f7f7" stroke="#343d42" stroke-width="3"/>
-<path d="M800 226 L821 226 L831 236 L831 267 L800 267 Z M821 226 L821 236 L831 236" fill="#fff" stroke="#5d6870" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M808 247 L823 247" fill="none" stroke="#5d6870" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M808 256 L823 256" fill="none" stroke="#5d6870" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M808 265 L823 265" fill="none" stroke="#5d6870" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M848 226 L869 226 L879 236 L879 267 L848 267 Z M869 226 L869 236 L879 236" fill="#fff" stroke="#5d6870" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M856 247 L871 247" fill="none" stroke="#5d6870" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M856 256 L871 256" fill="none" stroke="#5d6870" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M856 265 L871 265" fill="none" stroke="#5d6870" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M896 226 L917 226 L927 236 L927 267 L896 267 Z M917 226 L917 236 L927 236" fill="#fff" stroke="#5d6870" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M904 247 L919 247" fill="none" stroke="#5d6870" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M904 256 L919 256" fill="none" stroke="#5d6870" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M904 265 L919 265" fill="none" stroke="#5d6870" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<text x="787" y="332" text-anchor="start" font-family="STIX" font-size="36" fill="#14191e">B₂</text>
-<rect x="980" y="194" width="170" height="92" rx="8" fill="#e8f3fb" stroke="#145784" stroke-width="3"/>
-<path d="M1005 226 L1026 226 L1036 236 L1036 267 L1005 267 Z M1026 226 L1026 236 L1036 236" fill="#fff" stroke="#5d6870" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M1013 247 L1028 247" fill="none" stroke="#5d6870" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M1013 256 L1028 256" fill="none" stroke="#5d6870" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M1013 265 L1028 265" fill="none" stroke="#5d6870" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M1053 226 L1074 226 L1084 236 L1084 267 L1053 267 Z M1074 226 L1074 236 L1084 236" fill="#fff" stroke="#5d6870" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M1061 247 L1076 247" fill="none" stroke="#5d6870" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M1061 256 L1076 256" fill="none" stroke="#5d6870" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M1061 265 L1076 265" fill="none" stroke="#5d6870" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M1101 226 L1122 226 L1132 236 L1132 267 L1101 267 Z M1122 226 L1122 236 L1132 236" fill="#fff" stroke="#5d6870" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M1109 247 L1124 247" fill="none" stroke="#5d6870" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M1109 256 L1124 256" fill="none" stroke="#5d6870" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M1109 265 L1124 265" fill="none" stroke="#5d6870" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<text x="992" y="332" text-anchor="start" font-family="STIX" font-size="36" fill="#14191e">B₃</text>
-<rect x="1190" y="194" width="170" height="92" rx="8" fill="#f3f4f4" stroke="#888f93" stroke-width="3" stroke-dasharray="12 9"/>
-<path d="M1215 226 L1236 226 L1246 236 L1246 267 L1215 267 Z M1236 226 L1236 236 L1246 236" fill="#fff" stroke="#a1a9ad" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M1223 247 L1238 247" fill="none" stroke="#a1a9ad" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M1223 256 L1238 256" fill="none" stroke="#a1a9ad" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M1223 265 L1238 265" fill="none" stroke="#a1a9ad" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M1263 226 L1284 226 L1294 236 L1294 267 L1263 267 Z M1284 226 L1284 236 L1294 236" fill="#fff" stroke="#a1a9ad" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M1271 247 L1286 247" fill="none" stroke="#a1a9ad" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M1271 256 L1286 256" fill="none" stroke="#a1a9ad" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M1271 265 L1286 265" fill="none" stroke="#a1a9ad" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M1311 226 L1332 226 L1342 236 L1342 267 L1311 267 Z M1332 226 L1332 236 L1342 236" fill="#fff" stroke="#a1a9ad" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M1319 247 L1334 247" fill="none" stroke="#a1a9ad" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M1319 256 L1334 256" fill="none" stroke="#a1a9ad" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M1319 265 L1334 265" fill="none" stroke="#a1a9ad" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<text x="1202" y="332" text-anchor="start" font-family="STIX" font-size="36" fill="#14191e">B₄</text>
-<text x="1325" y="142" text-anchor="start" font-family="ArialBold" font-size="36" fill="#14191e">Skip idle</text>
-<path d="M1400 155 L1384 202" fill="none" stroke="#202a32" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M1068 286 L1068 384" fill="none" stroke="#1b252d" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-<polygon points="1058,378 1078,378 1068,394" fill="#202a32"/>
-<path d="M970 414 L1025 414 L1035 424 L1035 489 L970 489 Z M1025 414 L1025 424 L1035 424" fill="#fff" stroke="#404b53" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M978 435 L1027 435" fill="none" stroke="#404b53" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M978 444 L1027 444" fill="none" stroke="#404b53" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M978 453 L1027 453" fill="none" stroke="#404b53" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M982 402 L1037 402 L1047 412 L1047 477 L982 477 Z M1037 402 L1037 412 L1047 412" fill="#fff" stroke="#404b53" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M990 423 L1039 423" fill="none" stroke="#404b53" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M990 432 L1039 432" fill="none" stroke="#404b53" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M990 441 L1039 441" fill="none" stroke="#404b53" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M993 391 L1048 391 L1058 401 L1058 466 L993 466 Z M1048 391 L1048 401 L1058 401" fill="#fff" stroke="#404b53" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M1001 412 L1050 412" fill="none" stroke="#404b53" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M1001 421 L1050 421" fill="none" stroke="#404b53" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M1001 430 L1050 430" fill="none" stroke="#404b53" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<text x="1072" y="446" text-anchor="start" font-family="ArialBold" font-size="35" fill="#14191e">d</text>
-<path d="M997 493 C930 520 540 500 506 590" fill="none" stroke="#0b69b2" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-<polygon points="496,584 516,584 506,600" fill="#0b69b2"/>
-<path d="M1008 493 C930 555 590 522 580 590" fill="none" stroke="#198747" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-<polygon points="570,584 590,584 580,600" fill="#198747"/>
-<path d="M1020 493 C930 586 675 540 635 590" fill="none" stroke="#eb731b" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-<polygon points="625,584 645,584 635,600" fill="#eb731b"/>
-<rect x="28" y="594" width="303" height="207" rx="18" fill="#eaf4fb" stroke="#b7bec2" stroke-width="3"/>
-<text x="180" y="640" text-anchor="middle" font-family="ArialBold" font-size="39" fill="#14191e">GPU KV cache</text>
-<rect x="55" y="687" width="79" height="82" rx="8" fill="#5b6368" stroke="#27313b" stroke-width="4"/>
-<text x="94" y="738" text-anchor="middle" font-family="ArialBold" font-size="31" fill="#fff">GPU</text>
-<path d="M62 673 L62 687" fill="none" stroke="#27313b" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M62 769 L62 783" fill="none" stroke="#27313b" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M78 673 L78 687" fill="none" stroke="#27313b" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M78 769 L78 783" fill="none" stroke="#27313b" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M94 673 L94 687" fill="none" stroke="#27313b" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M94 769 L94 783" fill="none" stroke="#27313b" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M110 673 L110 687" fill="none" stroke="#27313b" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M110 769 L110 783" fill="none" stroke="#27313b" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M126 673 L126 687" fill="none" stroke="#27313b" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M126 769 L126 783" fill="none" stroke="#27313b" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-<ellipse cx="251" cy="685" rx="52" ry="20" fill="#dce6eb" stroke="#26343e" stroke-width="4"/>
-<rect x="199" y="685" width="104" height="67" rx="0" fill="#dce6eb" stroke="#26343e" stroke-width="4"/>
-<ellipse cx="251" cy="752" rx="52" ry="20" fill="#dce6eb" stroke="#26343e" stroke-width="4"/>
-<path d="M331 695 L450 695" fill="none" stroke="#202a32" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-<polygon points="434,685 434,705 450,695" fill="#202a32"/>
-<polygon points="347,685 347,705 331,695" fill="#202a32"/>
-<text x="531" y="626" text-anchor="middle" font-family="ArialBold" font-size="32" fill="#14191e">Shared prefix</text>
-<rect x="450" y="646" width="190" height="100" rx="15" fill="#f5edfb" stroke="#a25bdc" stroke-width="4"/>
-<text x="545" y="710" text-anchor="middle" font-family="STIX" font-size="49" fill="#14191e">&lt;π,d&gt;</text>
-<text x="826" y="593" text-anchor="middle" font-family="ArialBold" font-size="32" fill="#14191e">Question suffixes</text>
-<rect x="742" y="612" width="187" height="46" rx="10" fill="#e8f3fb" stroke="#0b69b2" stroke-width="3"/>
-<text x="832" y="645" text-anchor="middle" font-family="STIX" font-size="34" fill="#14191e">q₁: …?</text>
-<rect x="742" y="672" width="187" height="46" rx="10" fill="#ebf7ed" stroke="#198747" stroke-width="3"/>
-<text x="832" y="705" text-anchor="middle" font-family="STIX" font-size="34" fill="#14191e">q₂: …?</text>
-<rect x="742" y="732" width="187" height="46" rx="10" fill="#fff2e6" stroke="#eb731b" stroke-width="3"/>
-<text x="832" y="765" text-anchor="middle" font-family="STIX" font-size="34" fill="#14191e">q₃: …?</text>
-<path d="M640 675 C690 670 692 634 742 634" fill="none" stroke="#0b69b2" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-<polygon points="726,624 726,644 742,634" fill="#0b69b2"/>
-<path d="M640 696 L742 696" fill="none" stroke="#198747" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-<polygon points="726,686 726,706 742,696" fill="#198747"/>
-<path d="M640 719 C690 722 692 755 742 755" fill="none" stroke="#eb731b" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-<polygon points="726,745 726,765 742,755" fill="#eb731b"/>
-<path d="M929 635 C965 635 970 695 1000 695" fill="none" stroke="#202a32" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M929 695 C965 695 970 695 1000 695" fill="none" stroke="#202a32" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M929 755 C965 755 970 695 1000 695" fill="none" stroke="#202a32" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M1000 695 L1052 695" fill="none" stroke="#202a32" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-<polygon points="1038,685 1038,705 1054,695" fill="#202a32"/>
-<text x="1118" y="610" text-anchor="middle" font-family="ArialBold" font-size="39" fill="#14191e">First predicate</text>
-<polygon points="1120,626 1185,695 1120,760 1055,695" fill="#fbe0e6" stroke="#c3224a" stroke-width="4"/>
-<path d="M1088 665 L1152 665 L1129 697 L1129 722 L1111 730 L1111 697 Z" fill="#e8eef1" stroke="#29353d" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M1185 695 L1404 695" fill="none" stroke="#d6204c" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-<polygon points="1389,685 1389,705 1405,695" fill="#d6204c"/>
-<text x="1285" y="673" text-anchor="middle" font-family="ArialBold" font-size="32" fill="#14191e">NO</text>
-<path d="M1120 760 L1120 850 L1158 850" fill="none" stroke="#198747" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-<polygon points="1144,840 1144,860 1160,850" fill="#198747"/>
-<text x="1106" y="797" text-anchor="end" font-family="ArialBold" font-size="32" fill="#14191e">If yes</text>
-<path d="M1160 885 L550 885 C525 885 515 862 515 748" fill="none" stroke="#198747" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-<polygon points="505,764 525,764 515,748" fill="#198747"/>
-<polygon points="1190,786 1250,851 1190,916 1130,851" fill="#dcebf8" stroke="#0a609c" stroke-width="4"/>
-<path d="M1162 821 L1218 821 L1198 850 L1198 875 L1182 881 L1182 850 Z" fill="#e8eef1" stroke="#26343e" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-<text x="1190" y="953" text-anchor="middle" font-family="ArialBold" font-size="32" fill="#14191e">Optional</text>
-<text x="1190" y="991" text-anchor="middle" font-family="ArialBold" font-size="36" fill="#14191e">Second predicate</text>
-<path d="M1250 831 L1320 831 C1350 831 1345 735 1380 735 L1404 735" fill="none" stroke="#d6204c" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-<polygon points="1389,725 1389,745 1405,735" fill="#d6204c"/>
-<text x="1300" y="815" text-anchor="middle" font-family="ArialBold" font-size="32" fill="#14191e">NO</text>
-<path d="M1250 882 L1404 882" fill="none" stroke="#198747" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-<polygon points="1389,872 1389,892 1405,882" fill="#198747"/>
-<text x="1325" y="866" text-anchor="middle" font-family="ArialBold" font-size="32" fill="#14191e">YES</text>
-<text x="1390" y="613" text-anchor="middle" font-family="ArialBold" font-size="35" fill="#14191e">Excluded</text>
-<path d="M1418 646 L1471 646 L1481 656 L1481 729 L1418 729 Z M1471 646 L1471 656 L1481 656" fill="#fff" stroke="#424e56" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M1426 667 L1473 667" fill="none" stroke="#424e56" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M1426 676 L1473 676" fill="none" stroke="#424e56" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M1426 685 L1473 685" fill="none" stroke="#424e56" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M1432 663 L1467 707" fill="none" stroke="#c71932" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M1467 663 L1432 707" fill="none" stroke="#c71932" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
-<text x="1452" y="804" text-anchor="middle" font-family="ArialBold" font-size="38" fill="#14191e">Results</text>
-<path d="M1419 844 L1469 844 L1479 854 L1479 934 L1419 934 Z M1469 844 L1469 854 L1479 854" fill="#fff" stroke="#424e56" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M1427 865 L1471 865" fill="none" stroke="#424e56" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M1427 874 L1471 874" fill="none" stroke="#424e56" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M1427 883 L1471 883" fill="none" stroke="#424e56" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M1430 836 L1480 836 L1490 846 L1490 926 L1430 926 Z M1480 836 L1480 846 L1490 846" fill="#fff" stroke="#424e56" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M1438 857 L1482 857" fill="none" stroke="#424e56" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M1438 866 L1482 866" fill="none" stroke="#424e56" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M1438 875 L1482 875" fill="none" stroke="#424e56" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M1441 828 L1491 828 L1501 838 L1501 918 L1441 918 Z M1491 828 L1491 838 L1501 838" fill="#fff" stroke="#424e56" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M1449 849 L1493 849" fill="none" stroke="#424e56" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M1449 858 L1493 858" fill="none" stroke="#424e56" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M1449 867 L1493 867" fill="none" stroke="#424e56" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="1916" height="821" viewBox="0 0 1916 821">
+<rect id="" x="0" y="0" width="1916" height="821" rx="0" fill="#ffffff" stroke="#ffffff" stroke-width="0"/>
+<rect id="region-1" x="15" y="14" width="920" height="365" rx="18" fill="#FFF6EE" stroke="#78838d" stroke-width="2"/>
+<circle cx="60" cy="57" r="31" fill="#293441" stroke="#293441" stroke-width="1"/>
+<text x="60" y="68" font-family="ArialBold" font-size="33.4" text-anchor="middle" fill="#ffffff">1</text>
+<text x="120" y="70" font-family="ArialBold" font-size="33.4" text-anchor="start" fill="#17202b">Query admission</text>
+<rect id="region-2" x="958" y="14" width="942" height="365" rx="18" fill="#F0F6FC" stroke="#78838d" stroke-width="2"/>
+<circle cx="1003" cy="57" r="31" fill="#293441" stroke="#293441" stroke-width="1"/>
+<text x="1003" y="68" font-family="ArialBold" font-size="33.4" text-anchor="middle" fill="#ffffff">2</text>
+<text x="1063" y="70" font-family="ArialBold" font-size="33.4" text-anchor="start" fill="#17202b">Circular scan</text>
+<rect id="region-3" x="15" y="415" width="1008" height="390" rx="18" fill="#F6F1FB" stroke="#78838d" stroke-width="2"/>
+<circle cx="60" cy="458" r="31" fill="#293441" stroke="#293441" stroke-width="1"/>
+<text x="60" y="469" font-family="ArialBold" font-size="33.4" text-anchor="middle" fill="#ffffff">3</text>
+<text x="120" y="471" font-family="ArialBold" font-size="33.4" text-anchor="start" fill="#17202b">Shared prefix</text>
+<rect id="region-4" x="1041" y="415" width="859" height="390" rx="18" fill="#F1F8F3" stroke="#78838d" stroke-width="2"/>
+<circle cx="1086" cy="458" r="31" fill="#293441" stroke="#293441" stroke-width="1"/>
+<text x="1086" y="469" font-family="ArialBold" font-size="33.4" text-anchor="middle" fill="#ffffff">4</text>
+<text x="1146" y="471" font-family="ArialBold" font-size="33.4" text-anchor="start" fill="#17202b">Predicate routing</text>
+<polygon points="205,90 325,90 341,106 341,166 205,166" fill="#dbeaff" stroke="#1e5b9d" stroke-width="3"/>
+<path d="M325 90 L325 106 L341 106" fill="none" stroke="#1e5b9d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="245" y="141" font-family="AppleSymbols" font-size="30.4" text-anchor="start" fill="#17202b">q₁</text>
+<polygon points="205,181 325,181 341,197 341,257 205,257" fill="#def3e6" stroke="#198b4d" stroke-width="3"/>
+<path d="M325 181 L325 197 L341 197" fill="none" stroke="#198b4d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="245" y="232" font-family="AppleSymbols" font-size="30.4" text-anchor="start" fill="#17202b">q₂</text>
+<polygon points="205,272 325,272 341,288 341,348 205,348" fill="#ffe6dc" stroke="#d05b24" stroke-width="3"/>
+<path d="M325 272 L325 288 L341 288" fill="none" stroke="#d05b24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="245" y="323" font-family="AppleSymbols" font-size="30.4" text-anchor="start" fill="#17202b">q₃</text>
+<circle cx="157" cy="324" r="25" fill="#ffffff" stroke="#d05b24" stroke-width="4"/>
+<path d="M157 324 L157 307" fill="none" stroke="#17202b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M157 324 L169 324" fill="none" stroke="#17202b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="103" y="280" font-family="ArialBold" font-size="25.8" text-anchor="start" fill="#a93420">Late</text>
+<path d="M341 128 C430 125 442 193 521 193" fill="none" stroke="#17202b" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="521,193 509,185 509,201" fill="#17202b" stroke="#17202b" stroke-width="0"/>
+<path d="M341 219 L521 219" fill="none" stroke="#17202b" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="521,219 509,211 509,227" fill="#17202b" stroke="#17202b" stroke-width="0"/>
+<path d="M341 310 C430 315 444 245 521 245" fill="none" stroke="#17202b" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="521,245 509,237 509,253" fill="#17202b" stroke="#17202b" stroke-width="0"/>
+<rect id="" x="540" y="143" width="205" height="143" rx="55" fill="#e4eeff" stroke="#2460a5" stroke-width="3"/>
+<circle cx="605" cy="195" r="20" fill="#377dd9" stroke="#ffffff" stroke-width="2"/>
+<rect id="" x="581" y="215" width="48" height="28" rx="12" fill="#377dd9" stroke="#377dd9" stroke-width="0"/>
+<circle cx="650" cy="178" r="20" fill="#8fc889" stroke="#ffffff" stroke-width="2"/>
+<rect id="" x="626" y="198" width="48" height="28" rx="12" fill="#8fc889" stroke="#8fc889" stroke-width="0"/>
+<circle cx="690" cy="199" r="20" fill="#f3a06c" stroke="#ffffff" stroke-width="2"/>
+<rect id="" x="666" y="219" width="48" height="28" rx="12" fill="#f3a06c" stroke="#f3a06c" stroke-width="0"/>
+<text x="645" y="322" font-family="ArialBold" font-size="30.4" text-anchor="middle" fill="#17202b">active demand</text>
+<path d="M745 214 L1134 214" fill="none" stroke="#17202b" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="1134,214 1122,206 1122,222" fill="#17202b" stroke="#17202b" stroke-width="0"/>
+<path d="M1210 99 C1320 60 1540 60 1647 99" fill="none" stroke="#17202b" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="1210,99 1222,91 1222,107" fill="#17202b" stroke="#17202b" stroke-width="0"/>
+<path d="M1647 99 C1715 124 1700 146 1660 152" fill="none" stroke="#17202b" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<rect id="" x="1180" y="158" width="560" height="110" rx="50" fill="#e9edf0" stroke="#17202b" stroke-width="3"/>
+<rect id="" x="1201" y="177" width="126" height="88" rx="8" fill="#dcecff" stroke="#17202b" stroke-width="2"/>
+<text x="1264" y="232" font-family="AppleSymbols" font-size="30.4" text-anchor="middle" fill="#17202b">B₁</text>
+<rect id="" x="1334" y="177" width="126" height="88" rx="8" fill="#dcecff" stroke="#17202b" stroke-width="2"/>
+<text x="1397" y="232" font-family="AppleSymbols" font-size="30.4" text-anchor="middle" fill="#17202b">B₂</text>
+<rect id="" x="1467" y="177" width="126" height="88" rx="8" fill="#ffdc9d" stroke="#17202b" stroke-width="2"/>
+<text x="1530" y="232" font-family="AppleSymbols" font-size="30.4" text-anchor="middle" fill="#17202b">B₃</text>
+<rect id="" x="1600" y="177" width="126" height="88" rx="8" fill="#e9eaec" stroke="#17202b" stroke-width="2"/>
+<text x="1663" y="232" font-family="AppleSymbols" font-size="30.4" text-anchor="middle" fill="#17202b">B₄</text>
+<path d="M1517 267 L1517 305" fill="none" stroke="#17202b" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="1517,305 1509,293 1525,293" fill="#17202b" stroke="#17202b" stroke-width="0"/>
+<text x="1517" y="335" font-family="ArialBold" font-size="25.8" text-anchor="middle" fill="#17202b">release</text>
+<path d="M1701 269 L1701 305" fill="none" stroke="#17202b" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 8"/>
+<polygon points="1701,305 1693,293 1709,293" fill="#17202b" stroke="#17202b" stroke-width="0"/>
+<text x="1701" y="335" font-family="ArialBold" font-size="25.8" text-anchor="middle" fill="#17202b">skip</text>
+<path d="M1517 346 L1517 395 L115 395 L115 533" fill="none" stroke="#3d4c5a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="115,533 107,521 123,521" fill="#3d4c5a" stroke="#3d4c5a" stroke-width="0"/>
+<rect id="" x="52" y="550" width="110" height="88" rx="8" fill="#ffe2a9" stroke="#9a6109" stroke-width="3"/>
+<text x="107" y="607" font-family="AppleSymbols" font-size="30.4" text-anchor="middle" fill="#17202b">B₃</text>
+<path d="M162 593 L233 593" fill="none" stroke="#17202b" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="233,593 221,585 221,601" fill="#17202b" stroke="#17202b" stroke-width="0"/>
+<polygon points="238,540 317,540 333,556 333,649 238,649" fill="#e8f3ff" stroke="#1f5a92" stroke-width="3"/>
+<path d="M317 540 L317 556 L333 556" fill="none" stroke="#1f5a92" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M255 572 L317 572" fill="none" stroke="#1f5a92" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M255 584 L317 584" fill="none" stroke="#1f5a92" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M255 596 L317 596" fill="none" stroke="#1f5a92" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="282" y="686" font-family="ArialBold" font-size="30.4" text-anchor="middle" fill="#17202b">d</text>
+<path d="M334 593 L410 593" fill="none" stroke="#17202b" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="410,593 398,585 398,601" fill="#17202b" stroke="#17202b" stroke-width="0"/>
+<rect id="" x="410" y="505" width="220" height="202" rx="22" fill="#e7dcfa" stroke="#4d387e" stroke-width="4"/>
+<rect id="" x="425" y="491" width="12" height="14" rx="0" fill="#567ca7" stroke="#17202b" stroke-width="1"/>
+<rect id="" x="425" y="707" width="12" height="14" rx="0" fill="#567ca7" stroke="#17202b" stroke-width="1"/>
+<rect id="" x="455" y="491" width="12" height="14" rx="0" fill="#567ca7" stroke="#17202b" stroke-width="1"/>
+<rect id="" x="455" y="707" width="12" height="14" rx="0" fill="#567ca7" stroke="#17202b" stroke-width="1"/>
+<rect id="" x="485" y="491" width="12" height="14" rx="0" fill="#567ca7" stroke="#17202b" stroke-width="1"/>
+<rect id="" x="485" y="707" width="12" height="14" rx="0" fill="#567ca7" stroke="#17202b" stroke-width="1"/>
+<rect id="" x="515" y="491" width="12" height="14" rx="0" fill="#567ca7" stroke="#17202b" stroke-width="1"/>
+<rect id="" x="515" y="707" width="12" height="14" rx="0" fill="#567ca7" stroke="#17202b" stroke-width="1"/>
+<rect id="" x="545" y="491" width="12" height="14" rx="0" fill="#567ca7" stroke="#17202b" stroke-width="1"/>
+<rect id="" x="545" y="707" width="12" height="14" rx="0" fill="#567ca7" stroke="#17202b" stroke-width="1"/>
+<rect id="" x="575" y="491" width="12" height="14" rx="0" fill="#567ca7" stroke="#17202b" stroke-width="1"/>
+<rect id="" x="575" y="707" width="12" height="14" rx="0" fill="#567ca7" stroke="#17202b" stroke-width="1"/>
+<rect id="" x="605" y="491" width="12" height="14" rx="0" fill="#567ca7" stroke="#17202b" stroke-width="1"/>
+<rect id="" x="605" y="707" width="12" height="14" rx="0" fill="#567ca7" stroke="#17202b" stroke-width="1"/>
+<rect id="" x="428" y="529" width="184" height="148" rx="17" fill="#f3eafb" stroke="#6d49ab" stroke-width="3"/>
+<text x="520" y="589" font-family="ArialBold" font-size="25.8" text-anchor="middle" fill="#17202b">GPU KV cache</text>
+<text x="520" y="638" font-family="AppleSymbols" font-size="30.4" text-anchor="middle" fill="#17202b">⟨π,d⟩</text>
+<rect id="" x="717" y="496" width="195" height="65" rx="17" fill="#dcecff" stroke="#377dd9" stroke-width="3"/>
+<text x="805" y="540" font-family="AppleSymbols" font-size="30.4" text-anchor="middle" fill="#17202b">q₁</text>
+<rect id="" x="717" y="578" width="195" height="65" rx="17" fill="#e0f3e4" stroke="#198b4d" stroke-width="3"/>
+<text x="805" y="622" font-family="AppleSymbols" font-size="30.4" text-anchor="middle" fill="#17202b">q₂</text>
+<rect id="" x="717" y="660" width="195" height="65" rx="17" fill="#ffe8df" stroke="#d05b24" stroke-width="3"/>
+<text x="805" y="704" font-family="AppleSymbols" font-size="30.4" text-anchor="middle" fill="#17202b">q₃</text>
+<path d="M630 603 C675 603 675 528 717 528" fill="none" stroke="#377dd9" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="717,528 705,520 705,536" fill="#377dd9" stroke="#377dd9" stroke-width="0"/>
+<path d="M630 603 C675 603 675 610 717 610" fill="none" stroke="#198b4d" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="717,610 705,602 705,618" fill="#198b4d" stroke="#198b4d" stroke-width="0"/>
+<path d="M630 603 C675 603 675 692 717 692" fill="none" stroke="#d05b24" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="717,692 705,684 705,700" fill="#d05b24" stroke="#d05b24" stroke-width="0"/>
+<text x="815" y="750" font-family="ArialBold" font-size="25.8" text-anchor="middle" fill="#17202b">question suffixes</text>
+<path d="M912 528 L961 528 L961 692 L912 692" fill="none" stroke="#17202b" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M961 610 L1090 610" fill="none" stroke="#17202b" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="1090,610 1078,602 1078,618" fill="#17202b" stroke="#17202b" stroke-width="0"/>
+<polygon points="1185,524 1277,610 1185,696 1093,610" fill="#e9ddf8" stroke="#171b39" stroke-width="3"/>
+<text x="1185" y="603" font-family="ArialBold" font-size="25.8" text-anchor="middle" fill="#17202b">first</text>
+<text x="1185" y="635" font-family="ArialBold" font-size="25.8" text-anchor="middle" fill="#17202b">predicate</text>
+<text x="1285" y="594" font-family="ArialBold" font-size="25.8" text-anchor="start" fill="#198b4d">YES</text>
+<path d="M1277 610 L1350 610 L1350 506 L1782 506" fill="none" stroke="#198b4d" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="1782,506 1770,498 1770,514" fill="#198b4d" stroke="#198b4d" stroke-width="0"/>
+<text x="1450" y="493" font-family="Arial" font-size="25.8" text-anchor="middle" fill="#17202b">no second</text>
+<path d="M1350 610 L1515 610" fill="none" stroke="#198b4d" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="1515,610 1503,602 1503,618" fill="#198b4d" stroke="#198b4d" stroke-width="0"/>
+<text x="1430" y="596" font-family="Arial" font-size="25.8" text-anchor="middle" fill="#17202b">with second</text>
+<text x="1430" y="653" font-family="AppleSymbols" font-size="25.8" text-anchor="middle" fill="#294876">same ⟨π,d⟩</text>
+<polygon points="1604,535 1696,610 1604,685 1512,610" fill="#e9ddf8" stroke="#171b39" stroke-width="3"/>
+<text x="1604" y="604" font-family="ArialBold" font-size="25.8" text-anchor="middle" fill="#17202b">second</text>
+<text x="1604" y="636" font-family="ArialBold" font-size="25.8" text-anchor="middle" fill="#17202b">predicate</text>
+<text x="1705" y="590" font-family="ArialBold" font-size="25.8" text-anchor="start" fill="#198b4d">YES</text>
+<path d="M1696 610 L1740 610 L1740 548 L1782 548" fill="none" stroke="#198b4d" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="1782,548 1770,540 1770,556" fill="#198b4d" stroke="#198b4d" stroke-width="0"/>
+<polygon points="1785,474 1851,474 1867,490 1867,579 1785,579" fill="#e3f1ff" stroke="#2460a5" stroke-width="3"/>
+<path d="M1851 474 L1851 490 L1867 490" fill="none" stroke="#2460a5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M1802 506 L1851 506" fill="none" stroke="#2460a5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M1802 518 L1851 518" fill="none" stroke="#2460a5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M1802 530 L1851 530" fill="none" stroke="#2460a5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1826" y="612" font-family="ArialBold" font-size="25.8" text-anchor="middle" fill="#17202b">Results</text>
+<text x="1225" y="707" font-family="ArialBold" font-size="25.8" text-anchor="start" fill="#d33735">NO</text>
+<path d="M1185 696 L1185 742 L1782 742" fill="none" stroke="#d33735" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="1782,742 1770,734 1770,750" fill="#d33735" stroke="#d33735" stroke-width="0"/>
+<text x="1695" y="694" font-family="ArialBold" font-size="25.8" text-anchor="start" fill="#d33735">NO</text>
+<path d="M1604 685 L1604 713 L1755 713 L1755 742" fill="none" stroke="#d33735" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="1755,742 1747,730 1763,730" fill="#d33735" stroke="#d33735" stroke-width="0"/>
+<polygon points="1785,665 1851,665 1867,681 1867,770 1785,770" fill="#ffe5e5" stroke="#9d2b2b" stroke-width="3"/>
+<path d="M1851 665 L1851 681 L1867 681" fill="none" stroke="#9d2b2b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M1802 697 L1851 697" fill="none" stroke="#9d2b2b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M1802 709 L1851 709" fill="none" stroke="#9d2b2b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M1802 721 L1851 721" fill="none" stroke="#9d2b2b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1826" y="796" font-family="ArialBold" font-size="25.8" text-anchor="middle" fill="#17202b">Excluded</text>
 </svg>
