@@ -117,7 +117,7 @@
 <text x="1285" y="594" font-family="ArialBold" font-size="25.8" text-anchor="start" fill="#198b4d">YES</text>
 <path d="M1277 610 L1350 610 L1350 506 L1782 506" fill="none" stroke="#198b4d" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
 <polygon points="1782,506 1770,498 1770,514" fill="#198b4d" stroke="#198b4d" stroke-width="0"/>
-<text x="1450" y="493" font-family="Arial" font-size="25.8" text-anchor="middle" fill="#17202b">no second</text>
+<text x="1610" y="493" font-family="Arial" font-size="25.8" text-anchor="middle" fill="#17202b">no second</text>
 <path d="M1350 610 L1515 610" fill="none" stroke="#198b4d" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
 <polygon points="1515,610 1503,602 1503,618" fill="#198b4d" stroke="#198b4d" stroke-width="0"/>
 <text x="1430" y="596" font-family="Arial" font-size="25.8" text-anchor="middle" fill="#17202b">with second</text>
@@ -125,7 +125,7 @@
 <polygon points="1604,535 1696,610 1604,685 1512,610" fill="#e9ddf8" stroke="#171b39" stroke-width="3"/>
 <text x="1604" y="604" font-family="ArialBold" font-size="25.8" text-anchor="middle" fill="#17202b">second</text>
 <text x="1604" y="636" font-family="ArialBold" font-size="25.8" text-anchor="middle" fill="#17202b">predicate</text>
-<text x="1705" y="590" font-family="ArialBold" font-size="25.8" text-anchor="start" fill="#198b4d">YES</text>
+<text x="1695" y="632" font-family="ArialBold" font-size="25.8" text-anchor="start" fill="#198b4d">YES</text>
 <path d="M1696 610 L1740 610 L1740 548 L1782 548" fill="none" stroke="#198b4d" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
 <polygon points="1782,548 1770,540 1770,556" fill="#198b4d" stroke="#198b4d" stroke-width="0"/>
 <polygon points="1785,474 1851,474 1867,490 1867,579 1785,579" fill="#e3f1ff" stroke="#2460a5" stroke-width="3"/>
